@@ -1,0 +1,272 @@
+{
+ "span_m": 24.0,
+ "members": [
+  {
+   "member": 0,
+   "kind": "deck",
+   "envelope": 0.18086825933770598,
+   "midspan": 0.123130654965379
+  },
+  {
+   "member": 1,
+   "kind": "deck",
+   "envelope": 0.3737835266996017,
+   "midspan": 0.3187501478712745
+  },
+  {
+   "member": 2,
+   "kind": "deck",
+   "envelope": 0.4867007712793117,
+   "midspan": 0.4661083789561824
+  },
+  {
+   "member": 3,
+   "kind": "deck",
+   "envelope": 0.5317447599827533,
+   "midspan": 0.4969969220210747
+  },
+  {
+   "member": 4,
+   "kind": "deck",
+   "envelope": 0.5431068583158543,
+   "midspan": 0.4376418118331452
+  },
+  {
+   "member": 5,
+   "kind": "deck",
+   "envelope": 0.47611092399171434,
+   "midspan": 0.3135379912592117
+  },
+  {
+   "member": 6,
+   "kind": "deck",
+   "envelope": 0.33452541254283025,
+   "midspan": 0.19653440230572883
+  },
+  {
+   "member": 7,
+   "kind": "deck",
+   "envelope": 0.15735793311569815,
+   "midspan": 0.07716079202156394
+  },
+  {
+   "member": 8,
+   "kind": "top chord",
+   "envelope": 0.2924155819786678,
+   "midspan": 0.2271545683599854
+  },
+  {
+   "member": 9,
+   "kind": "top chord",
+   "envelope": 0.4535210361872179,
+   "midspan": 0.4093825187448938
+  },
+  {
+   "member": 10,
+   "kind": "top chord",
+   "envelope": 0.5467965192258556,
+   "midspan": 0.5107310027014464
+  },
+  {
+   "member": 11,
+   "kind": "top chord",
+   "envelope": 0.5649610888299593,
+   "midspan": 0.4901272397422127
+  },
+  {
+   "member": 12,
+   "kind": "top chord",
+   "envelope": 0.5048514267610202,
+   "midspan": 0.3760680795591132
+  },
+  {
+   "member": 13,
+   "kind": "top chord",
+   "envelope": 0.41933326718699593,
+   "midspan": 0.25476768671263933
+  },
+  {
+   "member": 14,
+   "kind": "top chord",
+   "envelope": 0.2769673559262042,
+   "midspan": 0.14052109591385506
+  },
+  {
+   "member": 15,
+   "kind": "diagonal",
+   "envelope": 0.3878302921604631,
+   "midspan": 0.28834148291813133
+  },
+  {
+   "member": 16,
+   "kind": "diagonal",
+   "envelope": 0.3642340022039107,
+   "midspan": 0.28543472321884417
+  },
+  {
+   "member": 17,
+   "kind": "diagonal",
+   "envelope": 0.33255038694214334,
+   "midspan": 0.2933876800641801
+  },
+  {
+   "member": 18,
+   "kind": "diagonal",
+   "envelope": 0.32251542140178274,
+   "midspan": 0.29165457038135045
+  },
+  {
+   "member": 19,
+   "kind": "diagonal",
+   "envelope": 0.27242713406102614,
+   "midspan": 0.19046173062265875
+  },
+  {
+   "member": 20,
+   "kind": "diagonal",
+   "envelope": 0.26237420270330036,
+   "midspan": 0.18007835839937164
+  },
+  {
+   "member": 21,
+   "kind": "diagonal",
+   "envelope": 0.214179858615515,
+   "midspan": 0.04641901813958337
+  },
+  {
+   "member": 22,
+   "kind": "diagonal",
+   "envelope": 0.20353977298870402,
+   "midspan": 0.05036894319151127
+  },
+  {
+   "member": 23,
+   "kind": "diagonal",
+   "envelope": 0.18001711619330654,
+   "midspan": 0.18001711619330654
+  },
+  {
+   "member": 24,
+   "kind": "diagonal",
+   "envelope": 0.18337502007070186,
+   "midspan": 0.18337502007070186
+  },
+  {
+   "member": 25,
+   "kind": "diagonal",
+   "envelope": 0.23786170484257257,
+   "midspan": 0.1842767572635848
+  },
+  {
+   "member": 26,
+   "kind": "diagonal",
+   "envelope": 0.24090900400465665,
+   "midspan": 0.18309806045903612
+  },
+  {
+   "member": 27,
+   "kind": "diagonal",
+   "envelope": 0.2981231683626078,
+   "midspan": 0.18355332427871407
+  },
+  {
+   "member": 28,
+   "kind": "diagonal",
+   "envelope": 0.30096095884722496,
+   "midspan": 0.18304000165891085
+  },
+  {
+   "member": 29,
+   "kind": "diagonal",
+   "envelope": 0.3447064740399866,
+   "midspan": 0.17754847360825973
+  },
+  {
+   "member": 30,
+   "kind": "diagonal",
+   "envelope": 0.35551307109840835,
+   "midspan": 0.17982100237629892
+  }
+ ],
+ "migration": [
+  {
+   "member": 0,
+   "kind": "deck",
+   "from_m": 0.0,
+   "to_m": 0.0
+  },
+  {
+   "member": 15,
+   "kind": "diagonal",
+   "from_m": 0.11666666666666667,
+   "to_m": 8.166666666666666
+  },
+  {
+   "member": 9,
+   "kind": "top chord",
+   "from_m": 8.283333333333333,
+   "to_m": 8.4
+  },
+  {
+   "member": 10,
+   "kind": "top chord",
+   "from_m": 8.516666666666667,
+   "to_m": 9.333333333333334
+  },
+  {
+   "member": 9,
+   "kind": "top chord",
+   "from_m": 9.45,
+   "to_m": 10.15
+  },
+  {
+   "member": 10,
+   "kind": "top chord",
+   "from_m": 10.266666666666667,
+   "to_m": 13.766666666666667
+  },
+  {
+   "member": 11,
+   "kind": "top chord",
+   "from_m": 13.883333333333333,
+   "to_m": 17.266666666666666
+  },
+  {
+   "member": 12,
+   "kind": "top chord",
+   "from_m": 17.383333333333333,
+   "to_m": 20.883333333333333
+  },
+  {
+   "member": 13,
+   "kind": "top chord",
+   "from_m": 21.0,
+   "to_m": 22.866666666666667
+  },
+  {
+   "member": 30,
+   "kind": "diagonal",
+   "from_m": 22.983333333333334,
+   "to_m": 27.883333333333333
+  },
+  {
+   "member": 0,
+   "kind": "deck",
+   "from_m": 28.0,
+   "to_m": 28.0
+  }
+ ],
+ "peak": {
+  "utilisation": 0.5649610888299593,
+  "x_front_m": 15.983333333333334,
+  "member": 11
+ },
+ "midspan_only": {
+  "member": 30,
+  "kind": "diagonal",
+  "midspan": 0.17982100237629892,
+  "envelope": 0.35551307109840835,
+  "points": 0.17569206872210943,
+  "n_underread_5_points": 23
+ }
+}

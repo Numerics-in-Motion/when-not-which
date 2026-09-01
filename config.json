@@ -1,0 +1,30 @@
+{
+  "geometry": {
+    "span_m": 24.0,
+    "truss_height_m": 4.0,
+    "n_panels": 8,
+    "member_area_m2": 0.002,
+    "member_outer_m": 0.1
+  },
+  "truck": {
+    "name": "two-axle lorry",
+    "axle_offsets_m": [
+      0.0,
+      4.0
+    ],
+    "axle_loads_n": [
+      60000.0,
+      140000.0
+    ]
+  },
+  "material": {
+    "name": "steel",
+    "youngs_modulus_pa": 200000000000.0,
+    "poisson_ratio": 0.3,
+    "density_kg_m3": 7850.0,
+    "failure_stress_pa": 250000000.0
+  },
+  "solver": {
+    "n_positions": 241
+  }
+}

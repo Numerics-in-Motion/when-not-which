@@ -1,0 +1,1665 @@
+{
+ "what": "Frozen by src/package_spinoff027.py from the canonical modules, BEFORE the package was copied. reproduce.py checks its own copies against the hashes below and then against these numbers.",
+ "question": "A truck crosses a bridge. Which member is worst, and when?",
+ "limit_state": "combined axial-plus-bending stress over yield, linear elastic, one static position at a time -- NOT a code check and NOT a collapse analysis",
+ "meta": {
+  "span_m": 24.0,
+  "n_panels": 8,
+  "truss_height_m": 4.0,
+  "n_positions": 241,
+  "n_members": 31,
+  "n_nodes": 17,
+  "truck": {
+   "name": "two-axle lorry",
+   "axle_offsets_m": [
+    0.0,
+    4.0
+   ],
+   "axle_loads_n": [
+    60000.0,
+    140000.0
+   ]
+  },
+  "truck_total_n": 200000.0,
+  "member_section": {
+   "kind": "box",
+   "area": 0.002,
+   "B": 0.1,
+   "b_inner": 0.0894427190999916,
+   "t": 0.005278640450004202,
+   "I_x": 2.9999999999999984e-06,
+   "I_y": 2.9999999999999984e-06,
+   "I_min": 2.9999999999999984e-06,
+   "c_x": 0.05,
+   "c_y": 0.05,
+   "outer_dim": 0.1
+  },
+  "fibre_c_m": 0.05
+ },
+ "gates": {
+  "statics_gate": {
+   "demands": "the support reactions match sum P(L-x)/L at every truck position. This expression knows nothing about the element formulation or the member section, so unlike the closed form used in the column studies it could not be fooled by a wrong section property",
+   "worst_relative_error": 2.4055206806075824e-14,
+   "pass": true
+  },
+  "determinacy_gate": {
+   "demands": "m + 3 = 2j, so the reactions above are statics rather than an outcome of the stiffness -- and no position produced a mechanism",
+   "members": 31,
+   "nodes": 17,
+   "m_plus_3": 34,
+   "two_j": 34,
+   "determinate": true,
+   "any_singular": false,
+   "worst_pivot_ratio": 0.0015298466300933213,
+   "pass": true
+  },
+  "migration_gate": {
+   "demands": "the identity of the worst member changes during the crossing, and the sequence contains both a diagonal and a chord. PRE-REGISTERED: if one member were worst from end to end there is no 'when' in the answer and this has to become a different video",
+   "changes": 10,
+   "distinct_members": 8,
+   "has_diagonal": true,
+   "has_chord": true,
+   "pass": true
+  },
+  "symmetry_gate": {
+   "demands": "under ONE axle the utilisation curve is symmetric about midspan, because the truss is. No closed form is involved",
+   "worst_asymmetry": 3.747683216419304e-15,
+   "n_samples": 121,
+   "pass": true
+  },
+  "bending_share_gate": {
+   "demands": "the elements carry bending as well as axial force, so the share of the peak stress that is bending is measured rather than assumed away. It is small, and it is stated",
+   "worst_bending_share": 0.09524761826786583,
+   "pass": true
+  },
+  "survives_gate": {
+   "demands": "the bridge carries the truck everywhere on the span. If it did not, 'when is it worst' would be the wrong question and the video would be about failure instead",
+   "peak_utilisation": 0.5649610888299593,
+   "at_x_m": 15.983333333333334,
+   "member": 11,
+   "kind": "top chord",
+   "pass": true
+  },
+  "envelope_gate": {
+   "demands": "putting the truck at midspan and stopping does NOT find every member's worst case. Reported in percentage POINTS of yield, not as a ratio: the largest RATIO is on a lightly stressed member (4.6 % to 21.4 % is 78 % but changes nothing about that member's safety), and quoting it would be picking the flattering measure. The claim is the absolute one, and the count",
+   "midspan_x_m": 12.016666666666667,
+   "worst_gap_points": 0.17569206872210943,
+   "worst_gap_member": 30,
+   "worst_gap_kind": "diagonal",
+   "worst_gap_midspan": 0.17982100237629892,
+   "worst_gap_envelope": 0.35551307109840835,
+   "worst_gap_factor": 1.9770386462113634,
+   "largest_ratio": 0.7832708526392648,
+   "largest_ratio_member": 21,
+   "largest_ratio_midspan": 0.04641901813958337,
+   "largest_ratio_envelope": 0.214179858615515,
+   "n_members": 31,
+   "n_underread_5_points": 23,
+   "peak_envelope": 0.5649610888299593,
+   "peak_midspan": 0.5107310027014464,
+   "peak_missed_points": 0.05423008612851288,
+   "pass": true
+  }
+ },
+ "migration": [
+  {
+   "member": 0,
+   "kind": "deck",
+   "from_m": 0.0,
+   "to_m": 0.0
+  },
+  {
+   "member": 15,
+   "kind": "diagonal",
+   "from_m": 0.11666666666666667,
+   "to_m": 8.166666666666666
+  },
+  {
+   "member": 9,
+   "kind": "top chord",
+   "from_m": 8.283333333333333,
+   "to_m": 8.4
+  },
+  {
+   "member": 10,
+   "kind": "top chord",
+   "from_m": 8.516666666666667,
+   "to_m": 9.333333333333334
+  },
+  {
+   "member": 9,
+   "kind": "top chord",
+   "from_m": 9.45,
+   "to_m": 10.15
+  },
+  {
+   "member": 10,
+   "kind": "top chord",
+   "from_m": 10.266666666666667,
+   "to_m": 13.766666666666667
+  },
+  {
+   "member": 11,
+   "kind": "top chord",
+   "from_m": 13.883333333333333,
+   "to_m": 17.266666666666666
+  },
+  {
+   "member": 12,
+   "kind": "top chord",
+   "from_m": 17.383333333333333,
+   "to_m": 20.883333333333333
+  },
+  {
+   "member": 13,
+   "kind": "top chord",
+   "from_m": 21.0,
+   "to_m": 22.866666666666667
+  },
+  {
+   "member": 30,
+   "kind": "diagonal",
+   "from_m": 22.983333333333334,
+   "to_m": 27.883333333333333
+  },
+  {
+   "member": 0,
+   "kind": "deck",
+   "from_m": 28.0,
+   "to_m": 28.0
+  }
+ ],
+ "structure": {
+  "nodes": [
+   [
+    0.0,
+    0.0
+   ],
+   [
+    3.0,
+    0.0
+   ],
+   [
+    6.0,
+    0.0
+   ],
+   [
+    9.0,
+    0.0
+   ],
+   [
+    12.0,
+    0.0
+   ],
+   [
+    15.0,
+    0.0
+   ],
+   [
+    18.0,
+    0.0
+   ],
+   [
+    21.0,
+    0.0
+   ],
+   [
+    24.0,
+    0.0
+   ],
+   [
+    1.5,
+    4.0
+   ],
+   [
+    4.5,
+    4.0
+   ],
+   [
+    7.5,
+    4.0
+   ],
+   [
+    10.5,
+    4.0
+   ],
+   [
+    13.5,
+    4.0
+   ],
+   [
+    16.5,
+    4.0
+   ],
+   [
+    19.5,
+    4.0
+   ],
+   [
+    22.5,
+    4.0
+   ]
+  ],
+  "members": [
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    6,
+    7
+   ],
+   [
+    7,
+    8
+   ],
+   [
+    9,
+    10
+   ],
+   [
+    10,
+    11
+   ],
+   [
+    11,
+    12
+   ],
+   [
+    12,
+    13
+   ],
+   [
+    13,
+    14
+   ],
+   [
+    14,
+    15
+   ],
+   [
+    15,
+    16
+   ],
+   [
+    0,
+    9
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    2,
+    11
+   ],
+   [
+    11,
+    3
+   ],
+   [
+    3,
+    12
+   ],
+   [
+    12,
+    4
+   ],
+   [
+    4,
+    13
+   ],
+   [
+    13,
+    5
+   ],
+   [
+    5,
+    14
+   ],
+   [
+    14,
+    6
+   ],
+   [
+    6,
+    15
+   ],
+   [
+    15,
+    7
+   ],
+   [
+    7,
+    16
+   ],
+   [
+    16,
+    8
+   ]
+  ],
+  "deck_nodes": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "pin_node": 0,
+  "roller_node": 8,
+  "kinds": [
+   "deck",
+   "deck",
+   "deck",
+   "deck",
+   "deck",
+   "deck",
+   "deck",
+   "deck",
+   "top chord",
+   "top chord",
+   "top chord",
+   "top chord",
+   "top chord",
+   "top chord",
+   "top chord",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal",
+   "diagonal"
+  ]
+ },
+ "envelope": [
+  0.18086825933770598,
+  0.3737835266996017,
+  0.4867007712793117,
+  0.5317447599827533,
+  0.5431068583158543,
+  0.47611092399171434,
+  0.33452541254283025,
+  0.15735793311569815,
+  0.2924155819786678,
+  0.4535210361872179,
+  0.5467965192258556,
+  0.5649610888299593,
+  0.5048514267610202,
+  0.41933326718699593,
+  0.2769673559262042,
+  0.3878302921604631,
+  0.3642340022039107,
+  0.33255038694214334,
+  0.32251542140178274,
+  0.27242713406102614,
+  0.26237420270330036,
+  0.214179858615515,
+  0.20353977298870402,
+  0.18001711619330654,
+  0.18337502007070186,
+  0.23786170484257257,
+  0.24090900400465665,
+  0.2981231683626078,
+  0.30096095884722496,
+  0.3447064740399866,
+  0.35551307109840835
+ ],
+ "worst_per_position": [
+  {
+   "x_front": 0.0,
+   "worst_member": 0,
+   "worst_utilisation": 0.0
+  },
+  {
+   "x_front": 0.11666666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.004807462426165045
+  },
+  {
+   "x_front": 0.23333333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.00961492485233009
+  },
+  {
+   "x_front": 0.35,
+   "worst_member": 15,
+   "worst_utilisation": 0.014422387278495133
+  },
+  {
+   "x_front": 0.4666666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.01922984970466018
+  },
+  {
+   "x_front": 0.5833333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.024037312130825238
+  },
+  {
+   "x_front": 0.7,
+   "worst_member": 15,
+   "worst_utilisation": 0.028844774556990267
+  },
+  {
+   "x_front": 0.8166666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.03365223698315531
+  },
+  {
+   "x_front": 0.9333333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.03845969940932036
+  },
+  {
+   "x_front": 1.05,
+   "worst_member": 15,
+   "worst_utilisation": 0.04326716183548542
+  },
+  {
+   "x_front": 1.1666666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.048074624261650475
+  },
+  {
+   "x_front": 1.2833333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.05288208668781549
+  },
+  {
+   "x_front": 1.4,
+   "worst_member": 15,
+   "worst_utilisation": 0.05768954911398053
+  },
+  {
+   "x_front": 1.5166666666666666,
+   "worst_member": 15,
+   "worst_utilisation": 0.06249701154014559
+  },
+  {
+   "x_front": 1.6333333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.06730447396631062
+  },
+  {
+   "x_front": 1.75,
+   "worst_member": 15,
+   "worst_utilisation": 0.07211193639247564
+  },
+  {
+   "x_front": 1.8666666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.07691939881864072
+  },
+  {
+   "x_front": 1.9833333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.0817268612448058
+  },
+  {
+   "x_front": 2.1,
+   "worst_member": 15,
+   "worst_utilisation": 0.08653432367097084
+  },
+  {
+   "x_front": 2.216666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.09134178609713586
+  },
+  {
+   "x_front": 2.3333333333333335,
+   "worst_member": 15,
+   "worst_utilisation": 0.09614924852330095
+  },
+  {
+   "x_front": 2.45,
+   "worst_member": 15,
+   "worst_utilisation": 0.100956710949466
+  },
+  {
+   "x_front": 2.566666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.10576417337563097
+  },
+  {
+   "x_front": 2.6833333333333336,
+   "worst_member": 15,
+   "worst_utilisation": 0.1105716358017961
+  },
+  {
+   "x_front": 2.8,
+   "worst_member": 15,
+   "worst_utilisation": 0.11537909822796107
+  },
+  {
+   "x_front": 2.9166666666666665,
+   "worst_member": 15,
+   "worst_utilisation": 0.1201865606541262
+  },
+  {
+   "x_front": 3.033333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.12341525088779566
+  },
+  {
+   "x_front": 3.15,
+   "worst_member": 15,
+   "worst_utilisation": 0.12269701064022642
+  },
+  {
+   "x_front": 3.2666666666666666,
+   "worst_member": 15,
+   "worst_utilisation": 0.12197877039265718
+  },
+  {
+   "x_front": 3.3833333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.12126053014508786
+  },
+  {
+   "x_front": 3.5,
+   "worst_member": 15,
+   "worst_utilisation": 0.12054228989751856
+  },
+  {
+   "x_front": 3.6166666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.11982404964994933
+  },
+  {
+   "x_front": 3.7333333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.11910580940238004
+  },
+  {
+   "x_front": 3.85,
+   "worst_member": 15,
+   "worst_utilisation": 0.11838756915481086
+  },
+  {
+   "x_front": 3.966666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.11766932890724159
+  },
+  {
+   "x_front": 4.083333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.12496352603661397
+  },
+  {
+   "x_front": 4.2,
+   "worst_member": 15,
+   "worst_utilisation": 0.1354626981167632
+  },
+  {
+   "x_front": 4.316666666666666,
+   "worst_member": 15,
+   "worst_utilisation": 0.1459618701969123
+  },
+  {
+   "x_front": 4.433333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.15646104227706145
+  },
+  {
+   "x_front": 4.55,
+   "worst_member": 15,
+   "worst_utilisation": 0.16696021435721067
+  },
+  {
+   "x_front": 4.666666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.17745938643735987
+  },
+  {
+   "x_front": 4.783333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.18795855851750912
+  },
+  {
+   "x_front": 4.9,
+   "worst_member": 15,
+   "worst_utilisation": 0.19845773059765828
+  },
+  {
+   "x_front": 5.016666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.20895690267780745
+  },
+  {
+   "x_front": 5.133333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.2194560747579566
+  },
+  {
+   "x_front": 5.25,
+   "worst_member": 15,
+   "worst_utilisation": 0.22995524683810561
+  },
+  {
+   "x_front": 5.366666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.24045441891825492
+  },
+  {
+   "x_front": 5.483333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.25095359099840414
+  },
+  {
+   "x_front": 5.6,
+   "worst_member": 15,
+   "worst_utilisation": 0.2614527630785532
+  },
+  {
+   "x_front": 5.716666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.27195193515870236
+  },
+  {
+   "x_front": 5.833333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.28245110723885164
+  },
+  {
+   "x_front": 5.95,
+   "worst_member": 15,
+   "worst_utilisation": 0.2929502793190007
+  },
+  {
+   "x_front": 6.066666666666666,
+   "worst_member": 15,
+   "worst_utilisation": 0.30347528234049104
+  },
+  {
+   "x_front": 6.183333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.31401965856798797
+  },
+  {
+   "x_front": 6.3,
+   "worst_member": 15,
+   "worst_utilisation": 0.3245640347954843
+  },
+  {
+   "x_front": 6.416666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.3351084110229809
+  },
+  {
+   "x_front": 6.533333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.34565278725047727
+  },
+  {
+   "x_front": 6.65,
+   "worst_member": 15,
+   "worst_utilisation": 0.35619716347797364
+  },
+  {
+   "x_front": 6.766666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.36674153970547
+  },
+  {
+   "x_front": 6.883333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.37728591593296673
+  },
+  {
+   "x_front": 7.0,
+   "worst_member": 15,
+   "worst_utilisation": 0.3878302921604631
+  },
+  {
+   "x_front": 7.116666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.3854813621492463
+  },
+  {
+   "x_front": 7.233333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.38313243213802933
+  },
+  {
+   "x_front": 7.3500000000000005,
+   "worst_member": 15,
+   "worst_utilisation": 0.3807835021268127
+  },
+  {
+   "x_front": 7.466666666666667,
+   "worst_member": 15,
+   "worst_utilisation": 0.37843457211559556
+  },
+  {
+   "x_front": 7.583333333333333,
+   "worst_member": 15,
+   "worst_utilisation": 0.37608564210437834
+  },
+  {
+   "x_front": 7.7,
+   "worst_member": 15,
+   "worst_utilisation": 0.37373671209316184
+  },
+  {
+   "x_front": 7.816666666666666,
+   "worst_member": 15,
+   "worst_utilisation": 0.37138778208194484
+  },
+  {
+   "x_front": 7.933333333333334,
+   "worst_member": 15,
+   "worst_utilisation": 0.3690388520707279
+  },
+  {
+   "x_front": 8.05,
+   "worst_member": 15,
+   "worst_utilisation": 0.3666899220595111
+  },
+  {
+   "x_front": 8.166666666666666,
+   "worst_member": 15,
+   "worst_utilisation": 0.3643409920482941
+  },
+  {
+   "x_front": 8.283333333333333,
+   "worst_member": 9,
+   "worst_utilisation": 0.3629194053018336
+  },
+  {
+   "x_front": 8.4,
+   "worst_member": 9,
+   "worst_utilisation": 0.3693927610222595
+  },
+  {
+   "x_front": 8.516666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.3769300219953068
+  },
+  {
+   "x_front": 8.633333333333333,
+   "worst_member": 10,
+   "worst_utilisation": 0.38462848037415687
+  },
+  {
+   "x_front": 8.75,
+   "worst_member": 10,
+   "worst_utilisation": 0.3923269387530066
+  },
+  {
+   "x_front": 8.866666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.4000253971318565
+  },
+  {
+   "x_front": 8.983333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.40772385551070656
+  },
+  {
+   "x_front": 9.1,
+   "worst_member": 10,
+   "worst_utilisation": 0.41226136154037746
+  },
+  {
+   "x_front": 9.216666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.41627204217851915
+  },
+  {
+   "x_front": 9.333333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.4202827228166601
+  },
+  {
+   "x_front": 9.45,
+   "worst_member": 9,
+   "worst_utilisation": 0.4258948093840861
+  },
+  {
+   "x_front": 9.566666666666666,
+   "worst_member": 9,
+   "worst_utilisation": 0.43191234762843655
+  },
+  {
+   "x_front": 9.683333333333334,
+   "worst_member": 9,
+   "worst_utilisation": 0.43792988587278664
+  },
+  {
+   "x_front": 9.8,
+   "worst_member": 9,
+   "worst_utilisation": 0.443947424117137
+  },
+  {
+   "x_front": 9.916666666666666,
+   "worst_member": 9,
+   "worst_utilisation": 0.4499649623614875
+  },
+  {
+   "x_front": 10.033333333333333,
+   "worst_member": 9,
+   "worst_utilisation": 0.4535210361872179
+  },
+  {
+   "x_front": 10.15,
+   "worst_member": 9,
+   "worst_utilisation": 0.4509234489663981
+  },
+  {
+   "x_front": 10.266666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.44992555279957797
+  },
+  {
+   "x_front": 10.383333333333333,
+   "worst_member": 10,
+   "worst_utilisation": 0.45286758932175125
+  },
+  {
+   "x_front": 10.5,
+   "worst_member": 10,
+   "worst_utilisation": 0.45580962584392476
+  },
+  {
+   "x_front": 10.616666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.45875166236609877
+  },
+  {
+   "x_front": 10.733333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.46169369888827144
+  },
+  {
+   "x_front": 10.85,
+   "worst_member": 10,
+   "worst_utilisation": 0.46463573541044484
+  },
+  {
+   "x_front": 10.966666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.4675777719326181
+  },
+  {
+   "x_front": 11.083333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.47108036324386726
+  },
+  {
+   "x_front": 11.2,
+   "worst_member": 10,
+   "worst_utilisation": 0.4760448411827311
+  },
+  {
+   "x_front": 11.316666666666666,
+   "worst_member": 10,
+   "worst_utilisation": 0.4810093191215946
+  },
+  {
+   "x_front": 11.433333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.4859737970604581
+  },
+  {
+   "x_front": 11.55,
+   "worst_member": 10,
+   "worst_utilisation": 0.4909382749993222
+  },
+  {
+   "x_front": 11.666666666666666,
+   "worst_member": 10,
+   "worst_utilisation": 0.4959027529381858
+  },
+  {
+   "x_front": 11.783333333333333,
+   "worst_member": 10,
+   "worst_utilisation": 0.5008672308770494
+  },
+  {
+   "x_front": 11.9,
+   "worst_member": 10,
+   "worst_utilisation": 0.5058317088159129
+  },
+  {
+   "x_front": 12.016666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.5107310027014464
+  },
+  {
+   "x_front": 12.133333333333333,
+   "worst_member": 10,
+   "worst_utilisation": 0.5152391922669978
+  },
+  {
+   "x_front": 12.25,
+   "worst_member": 10,
+   "worst_utilisation": 0.519747381832549
+  },
+  {
+   "x_front": 12.366666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.5242555713981
+  },
+  {
+   "x_front": 12.483333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.5287637609636515
+  },
+  {
+   "x_front": 12.6,
+   "worst_member": 10,
+   "worst_utilisation": 0.5332719505292024
+  },
+  {
+   "x_front": 12.716666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.537780140094754
+  },
+  {
+   "x_front": 12.833333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.5422883296603048
+  },
+  {
+   "x_front": 12.950000000000001,
+   "worst_member": 10,
+   "worst_utilisation": 0.5467965192258556
+  },
+  {
+   "x_front": 13.066666666666666,
+   "worst_member": 10,
+   "worst_utilisation": 0.546387298148499
+  },
+  {
+   "x_front": 13.183333333333334,
+   "worst_member": 10,
+   "worst_utilisation": 0.5422900190889601
+  },
+  {
+   "x_front": 13.3,
+   "worst_member": 10,
+   "worst_utilisation": 0.5381927400294226
+  },
+  {
+   "x_front": 13.416666666666666,
+   "worst_member": 10,
+   "worst_utilisation": 0.5340954609698838
+  },
+  {
+   "x_front": 13.533333333333333,
+   "worst_member": 10,
+   "worst_utilisation": 0.529998181910346
+  },
+  {
+   "x_front": 13.65,
+   "worst_member": 10,
+   "worst_utilisation": 0.5259009028508069
+  },
+  {
+   "x_front": 13.766666666666667,
+   "worst_member": 10,
+   "worst_utilisation": 0.5218036237912693
+  },
+  {
+   "x_front": 13.883333333333333,
+   "worst_member": 11,
+   "worst_utilisation": 0.5222367567555117
+  },
+  {
+   "x_front": 14.0,
+   "worst_member": 11,
+   "worst_utilisation": 0.5236827010017829
+  },
+  {
+   "x_front": 14.116666666666667,
+   "worst_member": 11,
+   "worst_utilisation": 0.5251286452480542
+  },
+  {
+   "x_front": 14.233333333333334,
+   "worst_member": 11,
+   "worst_utilisation": 0.5265745894943258
+  },
+  {
+   "x_front": 14.35,
+   "worst_member": 11,
+   "worst_utilisation": 0.5280205337405969
+  },
+  {
+   "x_front": 14.466666666666667,
+   "worst_member": 11,
+   "worst_utilisation": 0.5294664779868682
+  },
+  {
+   "x_front": 14.583333333333334,
+   "worst_member": 11,
+   "worst_utilisation": 0.5309124222331391
+  },
+  {
+   "x_front": 14.700000000000001,
+   "worst_member": 11,
+   "worst_utilisation": 0.5323583664794105
+  },
+  {
+   "x_front": 14.816666666666666,
+   "worst_member": 11,
+   "worst_utilisation": 0.5340936559504488
+  },
+  {
+   "x_front": 14.933333333333334,
+   "worst_member": 11,
+   "worst_utilisation": 0.5375650167700985
+  },
+  {
+   "x_front": 15.05,
+   "worst_member": 11,
+   "worst_utilisation": 0.540840809353291
+  },
+  {
+   "x_front": 15.166666666666666,
+   "worst_member": 11,
+   "worst_utilisation": 0.5438558442878748
+  },
+  {
+   "x_front": 15.283333333333333,
+   "worst_member": 11,
+   "worst_utilisation": 0.5468708792224581
+  },
+  {
+   "x_front": 15.4,
+   "worst_member": 11,
+   "worst_utilisation": 0.5498859141570416
+  },
+  {
+   "x_front": 15.516666666666667,
+   "worst_member": 11,
+   "worst_utilisation": 0.5529009490916252
+  },
+  {
+   "x_front": 15.633333333333333,
+   "worst_member": 11,
+   "worst_utilisation": 0.5559159840262088
+  },
+  {
+   "x_front": 15.75,
+   "worst_member": 11,
+   "worst_utilisation": 0.5589310189607921
+  },
+  {
+   "x_front": 15.866666666666667,
+   "worst_member": 11,
+   "worst_utilisation": 0.5619460538953753
+  },
+  {
+   "x_front": 15.983333333333334,
+   "worst_member": 11,
+   "worst_utilisation": 0.5649610888299593
+  },
+  {
+   "x_front": 16.1,
+   "worst_member": 11,
+   "worst_utilisation": 0.5606001661656616
+  },
+  {
+   "x_front": 16.21666666666667,
+   "worst_member": 11,
+   "worst_utilisation": 0.5550099172348844
+  },
+  {
+   "x_front": 16.333333333333332,
+   "worst_member": 11,
+   "worst_utilisation": 0.5494196683041072
+  },
+  {
+   "x_front": 16.45,
+   "worst_member": 11,
+   "worst_utilisation": 0.5438294193733302
+  },
+  {
+   "x_front": 16.566666666666666,
+   "worst_member": 11,
+   "worst_utilisation": 0.5382391704425521
+  },
+  {
+   "x_front": 16.683333333333334,
+   "worst_member": 11,
+   "worst_utilisation": 0.5326489215117746
+  },
+  {
+   "x_front": 16.8,
+   "worst_member": 11,
+   "worst_utilisation": 0.5270586725809971
+  },
+  {
+   "x_front": 16.916666666666668,
+   "worst_member": 11,
+   "worst_utilisation": 0.5214684236502202
+  },
+  {
+   "x_front": 17.033333333333335,
+   "worst_member": 11,
+   "worst_utilisation": 0.5158781747194425
+  },
+  {
+   "x_front": 17.15,
+   "worst_member": 11,
+   "worst_utilisation": 0.5102879257886652
+  },
+  {
+   "x_front": 17.266666666666666,
+   "worst_member": 11,
+   "worst_utilisation": 0.5046976768578879
+  },
+  {
+   "x_front": 17.383333333333333,
+   "worst_member": 12,
+   "worst_utilisation": 0.5017445394967268
+  },
+  {
+   "x_front": 17.5,
+   "worst_member": 12,
+   "worst_utilisation": 0.5016974722007709
+  },
+  {
+   "x_front": 17.616666666666667,
+   "worst_member": 12,
+   "worst_utilisation": 0.5016504049048158
+  },
+  {
+   "x_front": 17.733333333333334,
+   "worst_member": 12,
+   "worst_utilisation": 0.5016033376088601
+  },
+  {
+   "x_front": 17.85,
+   "worst_member": 12,
+   "worst_utilisation": 0.5015562703129045
+  },
+  {
+   "x_front": 17.96666666666667,
+   "worst_member": 12,
+   "worst_utilisation": 0.501509203016949
+  },
+  {
+   "x_front": 18.083333333333332,
+   "worst_member": 12,
+   "worst_utilisation": 0.5018064655461529
+  },
+  {
+   "x_front": 18.2,
+   "worst_member": 12,
+   "worst_utilisation": 0.502241460005419
+  },
+  {
+   "x_front": 18.316666666666666,
+   "worst_member": 12,
+   "worst_utilisation": 0.5026764544646863
+  },
+  {
+   "x_front": 18.433333333333334,
+   "worst_member": 12,
+   "worst_utilisation": 0.5031114489239533
+  },
+  {
+   "x_front": 18.55,
+   "worst_member": 12,
+   "worst_utilisation": 0.5035464433832197
+  },
+  {
+   "x_front": 18.666666666666668,
+   "worst_member": 12,
+   "worst_utilisation": 0.5039814378424867
+  },
+  {
+   "x_front": 18.783333333333335,
+   "worst_member": 12,
+   "worst_utilisation": 0.5044164323017539
+  },
+  {
+   "x_front": 18.9,
+   "worst_member": 12,
+   "worst_utilisation": 0.5048514267610202
+  },
+  {
+   "x_front": 19.016666666666666,
+   "worst_member": 12,
+   "worst_utilisation": 0.5040570685595603
+  },
+  {
+   "x_front": 19.133333333333333,
+   "worst_member": 12,
+   "worst_utilisation": 0.4968806294624649
+  },
+  {
+   "x_front": 19.25,
+   "worst_member": 12,
+   "worst_utilisation": 0.48979282486416864
+  },
+  {
+   "x_front": 19.366666666666667,
+   "worst_member": 12,
+   "worst_utilisation": 0.48270502026587175
+  },
+  {
+   "x_front": 19.483333333333334,
+   "worst_member": 12,
+   "worst_utilisation": 0.475617215667575
+  },
+  {
+   "x_front": 19.6,
+   "worst_member": 12,
+   "worst_utilisation": 0.46852941106927865
+  },
+  {
+   "x_front": 19.71666666666667,
+   "worst_member": 12,
+   "worst_utilisation": 0.4614416064709814
+  },
+  {
+   "x_front": 19.833333333333332,
+   "worst_member": 12,
+   "worst_utilisation": 0.4543538018726851
+  },
+  {
+   "x_front": 19.95,
+   "worst_member": 12,
+   "worst_utilisation": 0.44726599727438837
+  },
+  {
+   "x_front": 20.066666666666666,
+   "worst_member": 12,
+   "worst_utilisation": 0.4401781926760916
+  },
+  {
+   "x_front": 20.183333333333334,
+   "worst_member": 12,
+   "worst_utilisation": 0.4330903880777949
+  },
+  {
+   "x_front": 20.3,
+   "worst_member": 12,
+   "worst_utilisation": 0.42600258347949826
+  },
+  {
+   "x_front": 20.416666666666668,
+   "worst_member": 12,
+   "worst_utilisation": 0.41891477888120143
+  },
+  {
+   "x_front": 20.533333333333335,
+   "worst_member": 12,
+   "worst_utilisation": 0.41182697428290477
+  },
+  {
+   "x_front": 20.65,
+   "worst_member": 12,
+   "worst_utilisation": 0.40473916968460844
+  },
+  {
+   "x_front": 20.766666666666666,
+   "worst_member": 12,
+   "worst_utilisation": 0.3976513650863116
+  },
+  {
+   "x_front": 20.883333333333333,
+   "worst_member": 12,
+   "worst_utilisation": 0.39056356048801505
+  },
+  {
+   "x_front": 21.0,
+   "worst_member": 13,
+   "worst_utilisation": 0.3889292488354004
+  },
+  {
+   "x_front": 21.116666666666667,
+   "worst_member": 13,
+   "worst_utilisation": 0.3878758218646641
+  },
+  {
+   "x_front": 21.233333333333334,
+   "worst_member": 13,
+   "worst_utilisation": 0.38682239489392806
+  },
+  {
+   "x_front": 21.35,
+   "worst_member": 13,
+   "worst_utilisation": 0.38576896792319193
+  },
+  {
+   "x_front": 21.46666666666667,
+   "worst_member": 13,
+   "worst_utilisation": 0.3847155409524559
+  },
+  {
+   "x_front": 21.583333333333332,
+   "worst_member": 13,
+   "worst_utilisation": 0.38366211398171957
+  },
+  {
+   "x_front": 21.7,
+   "worst_member": 13,
+   "worst_utilisation": 0.38260868701098333
+  },
+  {
+   "x_front": 21.816666666666666,
+   "worst_member": 13,
+   "worst_utilisation": 0.3815552600402477
+  },
+  {
+   "x_front": 21.933333333333334,
+   "worst_member": 13,
+   "worst_utilisation": 0.38050183306951124
+  },
+  {
+   "x_front": 22.05,
+   "worst_member": 13,
+   "worst_utilisation": 0.37575620947084526
+  },
+  {
+   "x_front": 22.166666666666668,
+   "worst_member": 13,
+   "worst_utilisation": 0.36608765703493923
+  },
+  {
+   "x_front": 22.283333333333335,
+   "worst_member": 13,
+   "worst_utilisation": 0.35641910459903303
+  },
+  {
+   "x_front": 22.4,
+   "worst_member": 13,
+   "worst_utilisation": 0.34675055216312717
+  },
+  {
+   "x_front": 22.516666666666666,
+   "worst_member": 13,
+   "worst_utilisation": 0.337081999727221
+  },
+  {
+   "x_front": 22.633333333333333,
+   "worst_member": 13,
+   "worst_utilisation": 0.32741344729131494
+  },
+  {
+   "x_front": 22.75,
+   "worst_member": 13,
+   "worst_utilisation": 0.31774489485540897
+  },
+  {
+   "x_front": 22.866666666666667,
+   "worst_member": 13,
+   "worst_utilisation": 0.30807634241950266
+  },
+  {
+   "x_front": 22.983333333333334,
+   "worst_member": 30,
+   "worst_utilisation": 0.30137232339357084
+  },
+  {
+   "x_front": 23.1,
+   "worst_member": 30,
+   "worst_utilisation": 0.2982407548784007
+  },
+  {
+   "x_front": 23.21666666666667,
+   "worst_member": 30,
+   "worst_utilisation": 0.2951091863632304
+  },
+  {
+   "x_front": 23.333333333333332,
+   "worst_member": 30,
+   "worst_utilisation": 0.29197761784806037
+  },
+  {
+   "x_front": 23.45,
+   "worst_member": 30,
+   "worst_utilisation": 0.28884604933289065
+  },
+  {
+   "x_front": 23.566666666666666,
+   "worst_member": 30,
+   "worst_utilisation": 0.28571448081772033
+  },
+  {
+   "x_front": 23.683333333333334,
+   "worst_member": 30,
+   "worst_utilisation": 0.28258291230255017
+  },
+  {
+   "x_front": 23.8,
+   "worst_member": 30,
+   "worst_utilisation": 0.27945134378738
+  },
+  {
+   "x_front": 23.916666666666668,
+   "worst_member": 30,
+   "worst_utilisation": 0.27631977527221013
+  },
+  {
+   "x_front": 24.033333333333335,
+   "worst_member": 30,
+   "worst_utilisation": 0.2745617674502302
+  },
+  {
+   "x_front": 24.150000000000002,
+   "worst_member": 30,
+   "worst_utilisation": 0.27623766136122496
+  },
+  {
+   "x_front": 24.266666666666666,
+   "worst_member": 30,
+   "worst_utilisation": 0.2779135552722199
+  },
+  {
+   "x_front": 24.383333333333333,
+   "worst_member": 30,
+   "worst_utilisation": 0.2795894491832147
+  },
+  {
+   "x_front": 24.5,
+   "worst_member": 30,
+   "worst_utilisation": 0.28126534309421
+  },
+  {
+   "x_front": 24.616666666666667,
+   "worst_member": 30,
+   "worst_utilisation": 0.2829412370052047
+  },
+  {
+   "x_front": 24.733333333333334,
+   "worst_member": 30,
+   "worst_utilisation": 0.28461713091619967
+  },
+  {
+   "x_front": 24.85,
+   "worst_member": 30,
+   "worst_utilisation": 0.2862930248271946
+  },
+  {
+   "x_front": 24.96666666666667,
+   "worst_member": 30,
+   "worst_utilisation": 0.2879689187381897
+  },
+  {
+   "x_front": 25.083333333333332,
+   "worst_member": 30,
+   "worst_utilisation": 0.28043530819296103
+  },
+  {
+   "x_front": 25.2,
+   "worst_member": 30,
+   "worst_utilisation": 0.2692178958652425
+  },
+  {
+   "x_front": 25.316666666666666,
+   "worst_member": 30,
+   "worst_utilisation": 0.258000483537524
+  },
+  {
+   "x_front": 25.433333333333334,
+   "worst_member": 30,
+   "worst_utilisation": 0.2467830712098055
+  },
+  {
+   "x_front": 25.55,
+   "worst_member": 30,
+   "worst_utilisation": 0.23556565888208697
+  },
+  {
+   "x_front": 25.666666666666668,
+   "worst_member": 30,
+   "worst_utilisation": 0.22434824655436852
+  },
+  {
+   "x_front": 25.783333333333335,
+   "worst_member": 30,
+   "worst_utilisation": 0.21313083422664994
+  },
+  {
+   "x_front": 25.900000000000002,
+   "worst_member": 30,
+   "worst_utilisation": 0.2019134218989316
+  },
+  {
+   "x_front": 26.016666666666666,
+   "worst_member": 30,
+   "worst_utilisation": 0.1906960095712135
+  },
+  {
+   "x_front": 26.133333333333333,
+   "worst_member": 30,
+   "worst_utilisation": 0.17947859724349488
+  },
+  {
+   "x_front": 26.25,
+   "worst_member": 30,
+   "worst_utilisation": 0.16826118491577646
+  },
+  {
+   "x_front": 26.366666666666667,
+   "worst_member": 30,
+   "worst_utilisation": 0.15704377258805807
+  },
+  {
+   "x_front": 26.483333333333334,
+   "worst_member": 30,
+   "worst_utilisation": 0.14582636026033957
+  },
+  {
+   "x_front": 26.6,
+   "worst_member": 30,
+   "worst_utilisation": 0.13460894793262107
+  },
+  {
+   "x_front": 26.71666666666667,
+   "worst_member": 30,
+   "worst_utilisation": 0.12339153560490257
+  },
+  {
+   "x_front": 26.833333333333332,
+   "worst_member": 30,
+   "worst_utilisation": 0.11217412327718447
+  },
+  {
+   "x_front": 26.95,
+   "worst_member": 30,
+   "worst_utilisation": 0.10095671094946589
+  },
+  {
+   "x_front": 27.066666666666666,
+   "worst_member": 30,
+   "worst_utilisation": 0.08973929862174744
+  },
+  {
+   "x_front": 27.183333333333334,
+   "worst_member": 30,
+   "worst_utilisation": 0.07852188629402904
+  },
+  {
+   "x_front": 27.3,
+   "worst_member": 30,
+   "worst_utilisation": 0.06730447396631052
+  },
+  {
+   "x_front": 27.416666666666668,
+   "worst_member": 30,
+   "worst_utilisation": 0.05608706163859206
+  },
+  {
+   "x_front": 27.533333333333335,
+   "worst_member": 30,
+   "worst_utilisation": 0.04486964931087356
+  },
+  {
+   "x_front": 27.650000000000002,
+   "worst_member": 30,
+   "worst_utilisation": 0.03365223698315509
+  },
+  {
+   "x_front": 27.766666666666666,
+   "worst_member": 30,
+   "worst_utilisation": 0.02243482465543694
+  },
+  {
+   "x_front": 27.883333333333333,
+   "worst_member": 30,
+   "worst_utilisation": 0.011217412327718482
+  },
+  {
+   "x_front": 28.0,
+   "worst_member": 0,
+   "worst_utilisation": 0.0
+  }
+ ],
+ "source_sha256": {
+  "fem": "613651d8f2f556a2a283635d46c20ba163b01802ed47e963e411649b36907b1f",
+  "geometry": "87604ae6dbec85a4333bef6581e1139f99ac26c461dd5bb53701bc3b04ddb329",
+  "geometry_bridges": "1772352661135059e496093770cee6c586d84e1d4af7ef37d5759cb0d661f0fc",
+  "section_properties": "0aee661f81f382f72bd329db3e7bf0a1f3ffe31b3ed3d0d8071610f5748fb7e2",
+  "moving_load": "004e3c151b20d3040d74e91f78bbc8e0238b475c9542c9973e402c27fc4bffc7",
+  "utils": "6be98a3583e51f143939bbe988316e818f6392209ea0f4c0efa75522e6c77f4a"
+ },
+ "config_sha256": "5411f10e13ccf7db3659605b00af1d19cafc973be655558db9871ce47bafe10c"
+}
