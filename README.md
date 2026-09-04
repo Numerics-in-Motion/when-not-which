@@ -125,3 +125,29 @@ bridge/                             the solver, byte-identical to the canonical 
 reference/reference_canonical.json  frozen BEFORE the copy, with source hashes
 results/results.json                written by reproduce.py
 ```
+
+## And a smaller question with the same solver
+
+`load_cases/` asks what happens if you change the lorry instead of moving it.
+Same bridge, same position -- front axle at 14.0 m, so it straddles midspan
+-- with the axle loads in `config.json` changed and nothing else:
+
+| | total | midspan | worst member |
+|---|---|---|---|
+| as shipped | 200 kN (20.4 t) | **25.16 mm** | **52.4 %** of yield |
+| heavier | 300 kN (30.6 t) | **37.74 mm** | **78.6 %** of yield |
+
+```
+python load_cases/reproduce_load_cases.py
+```
+
+**Not doubled, and that is the point.** Doubling the lorry reaches **104.7 %
+of yield** -- past what this linear elastic solve can describe, since it has
+no material failure and no buckling check. The multiplier is 1.5 because
+that is what the model supports. **Nothing here yields and nothing
+collapses**, and the driver checks that doubling really would leave the model
+behind, so the reason is testable rather than asserted.
+
+The response is exactly proportional to the load. That is a property of a
+linear solve, not something learned about bridges -- it is checked only
+because it says the load vector scaled and nothing else quietly did.

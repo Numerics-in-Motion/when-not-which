@@ -1,0 +1,460 @@
+{
+ "what": "Frozen by src/package_spinoff031.py BEFORE anything was copied here. reproduce_load_cases.py checks its own copies against these hashes and then against these numbers.",
+ "question": "The same bridge and the same lorry position, with the axle loads changed and nothing else. What does it do?",
+ "answer": "200 kN -> 300 kN moves the midspan deflection from 25.16 mm to 37.74 mm and the worst member from 52.4 %% to 78.6 %% of yield. Both cases are elastic.",
+ "why_not_double": "Doubling the lorry reaches 104.7 %% of yield, past what this linear elastic solve can describe. The multiplier is 1.5 because that is what the model supports.",
+ "drawing": "The video draws the deflection x30 and says so. At true scale the difference between the two cases is half a pixel. The millimetres are true; the picture is multiplied, and both cases use the same multiplier.",
+ "independent_check": "The truss is statically determinate, so the reactions are sum P (L - x) / L -- an expression that does not read the element formulation, the section or the stiffness assembly. It is the only check here that is independent of the solver.",
+ "meta": {
+  "span_m": 24.0,
+  "x_front_m": 14.0,
+  "scales": [
+   1.0,
+   1.5
+  ],
+  "axle_offsets_m": [
+   0.0,
+   4.0
+  ],
+  "n_positions_in_parent": 241,
+  "member_area_m2": 0.002,
+  "yield_pa": 250000000.0,
+  "E_pa": 200000000000.0,
+  "tool": "Python, NumPy and SciPy. No commercial package.",
+  "deflection_exaggeration": 30.0,
+  "quantity": "LINEAR ELASTIC deflection and combined axial-plus-bending stress over yield, at one truck position. Not a code check: no load factors, no resistance factors, no buckling check on the compression members, no fatigue, no dynamics, no self-weight of the bridge. Nothing here collapses or yields, and the heavier case was chosen so that it does not."
+ },
+ "gates": {
+  "elastic_gate": {
+   "demands": "NO-GO. Every load case shown must stay below yield. This solve is linear elastic with no material failure and no buckling check, so a case past yield would be a picture of something the solver does not model. Doubling the lorry reaches 104.7 % of yield, which is why the multiplier is 1.50 and not 2",
+   "utilisation": {
+    "1.00": 0.5236827010017829,
+    "1.50": 0.785524051502674
+   },
+   "margin": 0.95,
+   "pass": true
+  },
+  "one_change_gate": {
+   "demands": "the two runs differ in the axle loads and in nothing else -- same geometry, same section, same material, same truck position, same node numbering. The video's whole claim is 'one number changed', and a second difference would make that false without looking any different",
+   "checks": {
+    "nodes": true,
+    "midspan_node": true,
+    "n_members": true,
+    "axle_ratio": true
+   },
+   "pass": true
+  },
+  "linearity_gate": {
+   "demands": "deflection and utilisation must be exactly proportional to the load. THIS IS NOT A FINDING -- it is what a linear elastic solve does, and the video says so rather than presenting it as something learned about bridges. It is here because it checks that the load vector scaled and nothing else did",
+   "sweep": [
+    {
+     "scale": 1.0,
+     "total_n": 200000.0,
+     "midspan_m": 0.025161315869995624,
+     "worst_member": 11,
+     "worst_utilisation": 0.5236827010017829
+    },
+    {
+     "scale": 1.25,
+     "total_n": 250000.0,
+     "midspan_m": 0.031451644837494526,
+     "worst_member": 11,
+     "worst_utilisation": 0.6546033762522285
+    },
+    {
+     "scale": 1.5,
+     "total_n": 300000.0,
+     "midspan_m": 0.03774197380499343,
+     "worst_member": 11,
+     "worst_utilisation": 0.785524051502674
+    },
+    {
+     "scale": 1.75,
+     "total_n": 350000.0,
+     "midspan_m": 0.04403230277249234,
+     "worst_member": 11,
+     "worst_utilisation": 0.9164447267531199
+    },
+    {
+     "scale": 2.0,
+     "total_n": 400000.0,
+     "midspan_m": 0.05032263173999125,
+     "worst_member": 11,
+     "worst_utilisation": 1.0473654020035659
+    }
+   ],
+   "worst_deviation_deflection": 2.220446049250313e-16,
+   "worst_deviation_utilisation": 5.551115123125783e-16,
+   "is_a_finding": false,
+   "pass": true
+  },
+  "statics_gate": {
+   "demands": "the truss is statically determinate, so the support reactions are pure statics -- sum P (L - x) / L. That expression does not read the element formulation, the section or the stiffness assembly, so it would catch an assembly error rather than agree with one. The ONLY check here that is independent of the solver",
+   "worst_relative_error": 1.3778844731859861e-14,
+   "independent": true,
+   "pass": true
+  },
+  "published_parity_gate": {
+   "demands": "at the unchanged load this must reproduce the published crossing study at the same truck position. The video says 'the same bridge as before, one number changed', and that is a claim about the FIRST picture as much as the second",
+   "available": true,
+   "published_x": 14.0,
+   "published_worst_member": 11,
+   "published_utilisation": 0.5236827010017829,
+   "here_worst_member": 11,
+   "here_utilisation": 0.5236827010017829,
+   "member_matches": true,
+   "utilisation_relative": 0.0,
+   "pass": true
+  },
+  "visible_gate": {
+   "demands": "NO-GO. The difference between the two load cases must be visible at the drawn scale, using ONE exaggeration shared by both pictures, and the exaggerated shape must not exceed the small-deflection assumption the solver makes. At true scale the difference is half a pixel",
+   "exaggeration": 30.0,
+   "same_factor_both_cases": true,
+   "midspan_low_mm": 25.161315869995626,
+   "midspan_high_mm": 37.74197380499343,
+   "difference_mm": 12.580657934997808,
+   "px_per_m_at_drawn_scale": 38.699999999999996,
+   "difference_px_true_scale": 0.48687146208441506,
+   "difference_px_as_drawn": 14.606143862532452,
+   "min_visible_px": 12.0,
+   "drawn_slope_deg": {
+    "1.00": 5.25624673322914,
+    "1.50": 7.856941233635905
+   },
+   "max_drawn_slope_deg": 7.856941233635905,
+   "slope_limit_deg": 8.0,
+   "fraction_of_nodes_that_moved_down": 0.8823529411764706,
+   "pass": true
+  },
+  "honest_timing_gate": {
+   "demands": "the video shows the answer being recomputed after the edit. If the solve were slow, showing it as instant would be a lie about the tool the video is about -- so the time is measured and reported, and if it were slow the video would have to say the run was precomputed",
+   "solve_seconds": {
+    "1.00": 0.00884230001247488,
+    "1.50": 0.0020138999971095473
+   },
+   "slowest": 0.00884230001247488,
+   "may_show_as_instant": true,
+   "pass": true
+  }
+ },
+ "cases": {
+  "1.00": {
+   "scale": 1.0,
+   "axle_loads_n": [
+    60000.0,
+    140000.0
+   ],
+   "total_n": 200000.0,
+   "total_tonnes": 20.387359836901123,
+   "midspan_m": 0.025161315869995624,
+   "midspan_node": 4,
+   "worst_member": 11,
+   "worst_utilisation": 0.5236827010017829,
+   "bending_share": 0.045858442708336514,
+   "reaction_a": 106666.66666666814,
+   "reaction_a_exact": 106666.66666666667,
+   "solve_seconds": 0.00884230001247488,
+   "xy": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     3.000300395997726,
+     -0.009082844622495504
+    ],
+    [
+     6.001199951883565,
+     -0.017262728402795288
+    ],
+    [
+     9.002699014968979,
+     -0.023642936254548396
+    ],
+    [
+     12.004535180566648,
+     -0.025161315869995624
+    ],
+    [
+     15.006259098948252,
+     -0.02232230945176703
+    ],
+    [
+     18.007570920557388,
+     -0.016194363698980637
+    ],
+    [
+     21.00835801402861,
+     -0.008492241703095755
+    ],
+    [
+     24.008620862263637,
+     0.0
+    ],
+    [
+     1.5088077316413004,
+     3.995400148031745
+    ],
+    [
+     4.5082079634299355,
+     3.986658888246802
+    ],
+    [
+     7.507008423664464,
+     3.9792666800493013
+    ],
+    [
+     10.50520991456711,
+     3.9752548808331287
+    ],
+    [
+     13.503336161712634,
+     3.9759356698243935
+    ],
+    [
+     16.501762136492058,
+     3.980495849192725
+    ],
+    [
+     19.500712573324055,
+     3.987509505918785
+    ],
+    [
+     22.50018776952401,
+     3.995702745546648
+    ]
+   ],
+   "xy0": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     3.0,
+     0.0
+    ],
+    [
+     6.0,
+     0.0
+    ],
+    [
+     9.0,
+     0.0
+    ],
+    [
+     12.0,
+     0.0
+    ],
+    [
+     15.0,
+     0.0
+    ],
+    [
+     18.0,
+     0.0
+    ],
+    [
+     21.0,
+     0.0
+    ],
+    [
+     24.0,
+     0.0
+    ],
+    [
+     1.5,
+     4.0
+    ],
+    [
+     4.5,
+     4.0
+    ],
+    [
+     7.5,
+     4.0
+    ],
+    [
+     10.5,
+     4.0
+    ],
+    [
+     13.5,
+     4.0
+    ],
+    [
+     16.5,
+     4.0
+    ],
+    [
+     19.5,
+     4.0
+    ],
+    [
+     22.5,
+     4.0
+    ]
+   ]
+  },
+  "1.50": {
+   "scale": 1.5,
+   "axle_loads_n": [
+    90000.0,
+    210000.0
+   ],
+   "total_n": 300000.0,
+   "total_tonnes": 30.581039755351682,
+   "midspan_m": 0.03774197380499343,
+   "midspan_node": 4,
+   "worst_member": 11,
+   "worst_utilisation": 0.785524051502674,
+   "bending_share": 0.04585844270833623,
+   "reaction_a": 160000.00000000204,
+   "reaction_a_exact": 160000.0,
+   "solve_seconds": 0.0020138999971095473,
+   "xy": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     3.000450593996589,
+     -0.013624266933743252
+    ],
+    [
+     6.001799927825347,
+     -0.02589409260419293
+    ],
+    [
+     9.004048522453468,
+     -0.03546440438182258
+    ],
+    [
+     12.006802770849973,
+     -0.03774197380499343
+    ],
+    [
+     15.009388648422377,
+     -0.03348346417765053
+    ],
+    [
+     18.011356380836084,
+     -0.024291545548470964
+    ],
+    [
+     21.012537021042913,
+     -0.012738362554643633
+    ],
+    [
+     24.012931293395457,
+     0.0
+    ],
+    [
+     1.5132115974619507,
+     3.9931002220476177
+    ],
+    [
+     4.512311945144903,
+     3.979988332370203
+    ],
+    [
+     7.5105126354966965,
+     3.968900020073952
+    ],
+    [
+     10.507814871850668,
+     3.962882321249693
+    ],
+    [
+     13.505004242568951,
+     3.9639035047365905
+    ],
+    [
+     16.50264320473809,
+     3.970743773789087
+    ],
+    [
+     19.50106885998608,
+     3.981264258878177
+    ],
+    [
+     22.50028165428602,
+     3.9935541183199716
+    ]
+   ],
+   "xy0": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     3.0,
+     0.0
+    ],
+    [
+     6.0,
+     0.0
+    ],
+    [
+     9.0,
+     0.0
+    ],
+    [
+     12.0,
+     0.0
+    ],
+    [
+     15.0,
+     0.0
+    ],
+    [
+     18.0,
+     0.0
+    ],
+    [
+     21.0,
+     0.0
+    ],
+    [
+     24.0,
+     0.0
+    ],
+    [
+     1.5,
+     4.0
+    ],
+    [
+     4.5,
+     4.0
+    ],
+    [
+     7.5,
+     4.0
+    ],
+    [
+     10.5,
+     4.0
+    ],
+    [
+     13.5,
+     4.0
+    ],
+    [
+     16.5,
+     4.0
+    ],
+    [
+     19.5,
+     4.0
+    ],
+    [
+     22.5,
+     4.0
+    ]
+   ]
+  }
+ },
+ "source_sha256": {
+  "load_response": "82966156afbd277f1888dab47573a18e2946ae99816128575fc0a50c12195d5e"
+ },
+ "config_sha256": "5411f10e13ccf7db3659605b00af1d19cafc973be655558db9871ce47bafe10c"
+}

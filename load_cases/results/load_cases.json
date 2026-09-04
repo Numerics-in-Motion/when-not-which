@@ -1,0 +1,43 @@
+{
+ "cases": {
+  "1.00": {
+   "total_n": 200000.0,
+   "midspan_m": 0.025161315869995624,
+   "worst_member": 11,
+   "worst_utilisation": 0.5236827010017829,
+   "reaction_a": 106666.66666666814,
+   "reaction_a_exact": 106666.66666666667,
+   "solve_seconds": 0.0025402000173926353
+  },
+  "1.50": {
+   "total_n": 300000.0,
+   "midspan_m": 0.03774197380499343,
+   "worst_member": 11,
+   "worst_utilisation": 0.785524051502674,
+   "reaction_a": 160000.00000000204,
+   "reaction_a_exact": 160000.0,
+   "solve_seconds": 0.0020323999924585223
+  }
+ },
+ "x_front_m": 14.0,
+ "ratio_deflection": 1.4999999999999998,
+ "meta": {
+  "span_m": 24.0,
+  "x_front_m": 14.0,
+  "scales": [
+   1.0,
+   1.5
+  ],
+  "axle_offsets_m": [
+   0.0,
+   4.0
+  ],
+  "n_positions_in_parent": 241,
+  "member_area_m2": 0.002,
+  "yield_pa": 250000000.0,
+  "E_pa": 200000000000.0,
+  "tool": "Python, NumPy and SciPy. No commercial package.",
+  "deflection_exaggeration": 30.0,
+  "quantity": "LINEAR ELASTIC deflection and combined axial-plus-bending stress over yield, at one truck position. Not a code check: no load factors, no resistance factors, no buckling check on the compression members, no fatigue, no dynamics, no self-weight of the bridge. Nothing here collapses or yields, and the heavier case was chosen so that it does not."
+ }
+}
