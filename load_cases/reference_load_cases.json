@@ -3,7 +3,7 @@
  "question": "The same bridge and the same lorry position, with the axle loads changed and nothing else. What does it do?",
  "answer": "200 kN -> 300 kN moves the midspan deflection from 25.16 mm to 37.74 mm and the worst member from 52.4 %% to 78.6 %% of yield. Both cases are elastic.",
  "why_not_double": "Doubling the lorry reaches 104.7 %% of yield, past what this linear elastic solve can describe. The multiplier is 1.5 because that is what the model supports.",
- "drawing": "The video draws the deflection x30 and says so. At true scale the difference between the two cases is half a pixel. The millimetres are true; the picture is multiplied, and both cases use the same multiplier.",
+ "drawing": "At true scale the difference between the two load cases is about half a pixel across a 24 m span drawn on a phone -- 25 mm of deflection on 24 000 mm. Any picture of it has to multiply the displacement and say by how much. The millimetres in this file are true.",
  "independent_check": "The truss is statically determinate, so the reactions are sum P (L - x) / L -- an expression that does not read the element formulation, the section or the stiffness assembly. It is the only check here that is independent of the solver.",
  "meta": {
   "span_m": 24.0,
