@@ -1,5 +1,5 @@
 {
- "what": "Frozen by src/package_spinoff031.py BEFORE anything was copied here. reproduce_load_cases.py checks its own copies against these hashes and then against these numbers.",
+ "what": "Frozen by src/package_load_cases.py BEFORE anything was copied here. reproduce_load_cases.py checks its own copies against these hashes and then against these numbers.",
  "question": "The same bridge and the same lorry position, with the axle loads changed and nothing else. What does it do?",
  "answer": "200 kN -> 300 kN moves the midspan deflection from 25.16 mm to 37.74 mm and the worst member from 52.4 %% to 78.6 %% of yield. Both cases are elastic.",
  "why_not_double": "Doubling the lorry reaches 104.7 %% of yield, past what this linear elastic solve can describe. The multiplier is 1.5 because that is what the model supports.",
@@ -22,7 +22,7 @@
   "E_pa": 200000000000.0,
   "tool": "Python, NumPy and SciPy. No commercial package.",
   "deflection_exaggeration": 30.0,
-  "quantity": "LINEAR ELASTIC deflection and combined axial-plus-bending stress over yield, at one truck position. Not a code check: no load factors, no resistance factors, no buckling check on the compression members, no fatigue, no dynamics, no self-weight of the bridge. Nothing here collapses or yields, and the heavier case was chosen so that it does not."
+  "quantity": "LINEAR ELASTIC deflection and combined axial-plus-bending stress over yield, at one truck position. Not a code check: no load factors, no resistance factors, no buckling check on the compression members, no fatigue, no dynamics, no self-weight of the bridge. Nothing here collapses or yields: the heavier case was chosen so that it does not."
  },
  "gates": {
   "elastic_gate": {
@@ -35,7 +35,7 @@
    "pass": true
   },
   "one_change_gate": {
-   "demands": "the two runs differ in the axle loads and in nothing else -- same geometry, same section, same material, same truck position, same node numbering. The video's whole claim is 'one number changed', and a second difference would make that false without looking any different",
+   "demands": "the two runs differ in the axle loads and in nothing else -- same geometry, same section, same material, same truck position, same node numbering. The whole point is 'one number changed', and a second difference would make that false while looking identical",
    "checks": {
     "nodes": true,
     "midspan_node": true,
@@ -45,7 +45,7 @@
    "pass": true
   },
   "linearity_gate": {
-   "demands": "deflection and utilisation must be exactly proportional to the load. THIS IS NOT A FINDING -- it is what a linear elastic solve does, and the video says so rather than presenting it as something learned about bridges. It is here because it checks that the load vector scaled and nothing else did",
+   "demands": "deflection and utilisation must be exactly proportional to the load. THIS IS NOT A FINDING -- it is what a linear elastic solve does, and it is reported as such rather than as something learned about bridges. It is here because it checks that the load vector scaled and nothing else did",
    "sweep": [
     {
      "scale": 1.0,
@@ -95,7 +95,7 @@
    "pass": true
   },
   "published_parity_gate": {
-   "demands": "at the unchanged load this must reproduce the published crossing study at the same truck position. The video says 'the same bridge as before, one number changed', and that is a claim about the FIRST picture as much as the second",
+   "demands": "at the unchanged load this must reproduce the published crossing study at the same truck position. 'The same bridge as before, one number changed' is a claim about the unchanged case as much as the changed one",
    "available": true,
    "published_x": 14.0,
    "published_worst_member": 11,
@@ -107,7 +107,7 @@
    "pass": true
   },
   "visible_gate": {
-   "demands": "NO-GO. The difference between the two load cases must be visible at the drawn scale, using ONE exaggeration shared by both pictures, and the exaggerated shape must not exceed the small-deflection assumption the solver makes. At true scale the difference is half a pixel",
+   "demands": "the difference between the two load cases, measured at true scale and at a stated exaggeration shared by both. The exaggerated shape must not exceed the small-deflection assumption the solver itself makes",
    "exaggeration": 30.0,
    "same_factor_both_cases": true,
    "midspan_low_mm": 25.161315869995626,
@@ -127,12 +127,12 @@
    "pass": true
   },
   "honest_timing_gate": {
-   "demands": "the video shows the answer being recomputed after the edit. If the solve were slow, showing it as instant would be a lie about the tool the video is about -- so the time is measured and reported, and if it were slow the video would have to say the run was precomputed",
+   "demands": "how long each solve actually takes, measured rather than assumed, so that anyone reproducing this knows what to expect",
    "solve_seconds": {
-    "1.00": 0.00884230001247488,
-    "1.50": 0.0020138999971095473
+    "1.00": 0.010111499985214323,
+    "1.50": 0.0028372000087983906
    },
-   "slowest": 0.00884230001247488,
+   "slowest": 0.010111499985214323,
    "may_show_as_instant": true,
    "pass": true
   }
@@ -153,7 +153,7 @@
    "bending_share": 0.045858442708336514,
    "reaction_a": 106666.66666666814,
    "reaction_a_exact": 106666.66666666667,
-   "solve_seconds": 0.00884230001247488,
+   "solve_seconds": 0.010111499985214323,
    "xy": [
     [
      0.0,
@@ -310,7 +310,7 @@
    "bending_share": 0.04585844270833623,
    "reaction_a": 160000.00000000204,
    "reaction_a_exact": 160000.0,
-   "solve_seconds": 0.0020138999971095473,
+   "solve_seconds": 0.0028372000087983906,
    "xy": [
     [
      0.0,
